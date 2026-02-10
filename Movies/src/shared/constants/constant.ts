@@ -19,3 +19,25 @@ export const GENRES_MAP: Record<number, string> = {
   10752: "War",
   37: "Western",
 };
+
+export const GENRES_COLOR_MAP: Record<number, string> = {
+  28: "bg-red-500",
+  12: "bg-green-500",
+  16: "bg-yellow-400",
+  35: "bg-pink-400",
+  80: "bg-gray-700",
+  99: "bg-blue-300",
+  18: "bg-indigo-500",
+  10751: "bg-purple-400",
+  14: "bg-purple-600",
+  36: "bg-orange-500",
+  27: "bg-red-700",
+  10402: "bg-teal-400",
+  9648: "bg-gray-600",
+  10749: "bg-pink-600",
+  878: "bg-cyan-400",
+  10770: "bg-indigo-300",
+  53: "bg-gray-800",
+  10752: "bg-red-800",
+  37: "bg-yellow-700",
+};

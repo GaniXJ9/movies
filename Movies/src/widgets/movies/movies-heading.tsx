@@ -20,6 +20,7 @@ export const MoviesHeading = ({ movies }: { movies: Movie[] }) => {
           delay: 3000,
         }),
       ]}
+      className="bg-primary"
     >
       <CarouselContent>
         {movies?.map((movie: Movie) => (
@@ -32,9 +33,6 @@ export const MoviesHeading = ({ movies }: { movies: Movie[] }) => {
           </CarouselItem>
         ))}
       </CarouselContent>
-
-      <CarouselPrevious />
-      <CarouselNext />
     </Carousel>
   );
 };
