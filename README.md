@@ -20,7 +20,6 @@
 1. Клонируйте репозиторий:
 
 ```bash
-git clone https://github.com/ваш-username/название-проекта.git
 cd movies
 npm i
 npm run dev
