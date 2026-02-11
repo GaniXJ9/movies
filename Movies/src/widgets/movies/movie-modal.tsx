@@ -16,7 +16,7 @@ export const MovieDialog = ({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
-        <MoviesDetail id={movie.id} />
+        <MoviesDetail id={movie.id} onOpenChange={onOpenChange} />
       </DialogContent>
     </Dialog>
   );

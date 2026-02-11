@@ -18,7 +18,7 @@ const MovieModal = ({
         open ? "block" : "hidden",
       )}
     >
-      <div className="w-[70vw]">
+      <div className="">
         <MovieDialog movie={movie} open={open} onOpenChange={setOpen} />
       </div>
     </div>

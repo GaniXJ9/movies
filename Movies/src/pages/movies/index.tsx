@@ -24,7 +24,7 @@ const Movies = () => {
       <MoviesByGenre />
       <SortingOptions />
 
-      <section className="grid grid-cols-5 gap-6 py-10 px-20">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 py-10 px-20">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}

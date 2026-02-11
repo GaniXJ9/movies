@@ -14,7 +14,7 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
   return (
     <>
       <Card
-        className="relative w-60 hover:scale-105 transition-all duration-300 cursor-pointer group"
+        className="relative hover:scale-105 transition-all duration-300 cursor-pointer group"
         onClick={() => setOpen(true)}
       >
         <img

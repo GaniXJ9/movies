@@ -3,11 +3,20 @@ import dayjs from "dayjs";
 import { useMovies } from "../../../entities/store/movies/use-movies";
 import BackDrop from "../../../shared/back-drop";
 import { Loader } from "../../../widgets/common/loader";
+import { Button } from "../../../components/ui/button";
+import { IMAGE_URL_1 } from "../../../shared/constants/constant";
 
-const IMAGE_URL = "https://image.tmdb.org/t/p/original";
+interface MoviesDetailProps {
+  id: number;
+  onOpenChange: (open: boolean) => void;
+}
 
-const MoviesDetail = ({ id }: { id: number }) => {
+const MoviesDetail = ({ id, onOpenChange }: MoviesDetailProps) => {
   const { selectedMovie, getOneMovie } = useMovies();
+
+  const handleClose = () => {
+    onOpenChange(false);
+  };
 
   useEffect(() => {
     if (id) {
@@ -20,19 +29,19 @@ const MoviesDetail = ({ id }: { id: number }) => {
   }
 
   return (
-    <section className="relative  text-white">
+    <section className="relative text-white overflow-auto">
       <BackDrop img={selectedMovie.backdrop_path} />
 
-      <div className="container mx-auto px-8 py-16 flex gap-10">
+      <div className="relative container mx-auto px-8 py-16 flex flex-col md:flex-row gap-10">
         <img
-          src={`${IMAGE_URL}${selectedMovie.poster_path}`}
+          src={`${IMAGE_URL_1}${selectedMovie.poster_path}`}
           alt={selectedMovie.title}
-          className="w-92 rounded-2xl shadow-2xl"
+          className="w-32 lg:w-92 rounded-2xl shadow-2xl"
         />
 
-        <div className="flex-1 space-y-6">
+        <div className="flex-1 md:space-y-6">
           <div>
-            <h1 className="text-4xl font-bold">
+            <h1 className="text-xl lg:text-4xl font-bold">
               {selectedMovie.title}{" "}
               <span className="text-gray-400 font-normal">
                 ({dayjs(selectedMovie.release_date).format("YYYY")})
@@ -64,7 +73,7 @@ const MoviesDetail = ({ id }: { id: number }) => {
 
           <div>
             <h2 className="text-xl font-semibold mb-2">Описание</h2>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-sm md:text-xl text-gray-300 leading-relaxed">
               {selectedMovie.overview}
             </p>
           </div>
@@ -72,26 +81,28 @@ const MoviesDetail = ({ id }: { id: number }) => {
           <div className="grid grid-cols-2 gap-6 pt-4">
             <div>
               <p className="text-gray-400 text-sm">Бюджет</p>
-              <p className="text-lg font-semibold">
+              <p className="text-sm md:text-lg font-semibold">
                 ${selectedMovie.budget.toLocaleString()}
               </p>
             </div>
 
             <div>
               <p className="text-gray-400 text-sm">Сборы</p>
-              <p className="text-lg font-semibold">
+              <p className="text-sm md:text-lg font-semibold">
                 ${selectedMovie.revenue.toLocaleString()}
               </p>
             </div>
 
             <div>
               <p className="text-gray-400 text-sm">Статус</p>
-              <p className="text-lg font-semibold">{selectedMovie.status}</p>
+              <p className="text-sm md:text-lg font-semibold">
+                {selectedMovie.status}
+              </p>
             </div>
 
             <div>
               <p className="text-gray-400 text-sm">Страна</p>
-              <p className="text-lg font-semibold">
+              <p className="text-sm md:text-lg font-semibold">
                 {selectedMovie.production_countries
                   .map((c) => c.name)
                   .join(", ")}
