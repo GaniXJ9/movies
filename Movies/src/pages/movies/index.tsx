@@ -1,13 +1,10 @@
 import { useEffect } from "react";
 import { useMovies } from "../../entities/movies/use-movies";
 import { MoviesHeading } from "../../widgets/movies/movies-heading";
-import { MoviesTable } from "../../widgets/movies/movies-table";
-import { useMovieColumns } from "../../app/movies/movies-column";
 import { MovieCard } from "../../widgets/movies/movie-card";
 
-const Home = () => {
+const Movies = () => {
   const { movies, fetchMovies } = useMovies();
-  const columns = useMovieColumns();
 
   useEffect(() => {
     fetchMovies();
@@ -30,4 +27,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Movies;

@@ -6,7 +6,6 @@ import "./shared/css/style.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Header />
     <App />
   </StrictMode>,
 );
