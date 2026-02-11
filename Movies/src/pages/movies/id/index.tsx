@@ -3,20 +3,14 @@ import dayjs from "dayjs";
 import { useMovies } from "../../../entities/store/movies/use-movies";
 import BackDrop from "../../../shared/back-drop";
 import { Loader } from "../../../widgets/common/loader";
-import { Button } from "../../../components/ui/button";
 import { IMAGE_URL_1 } from "../../../shared/constants/constant";
 
 interface MoviesDetailProps {
   id: number;
-  onOpenChange: (open: boolean) => void;
 }
 
-const MoviesDetail = ({ id, onOpenChange }: MoviesDetailProps) => {
+const MoviesDetail = ({ id }: MoviesDetailProps) => {
   const { selectedMovie, getOneMovie } = useMovies();
-
-  const handleClose = () => {
-    onOpenChange(false);
-  };
 
   useEffect(() => {
     if (id) {
