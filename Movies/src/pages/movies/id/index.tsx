@@ -1,12 +1,10 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { useMovies } from "../../../entities/movies/use-movies";
 import dayjs from "dayjs";
 
 const IMAGE_URL = "https://image.tmdb.org/t/p/original";
 
-const MoviesDetail = () => {
-  const { id } = useParams();
+const MoviesDetail = ({ id }: { id: number }) => {
   const { selectedMovie, fetchMovieById } = useMovies();
 
   useEffect(() => {
@@ -24,7 +22,7 @@ const MoviesDetail = () => {
   }
 
   return (
-    <section className="relative min-h-screen text-white">
+    <section className="relative  text-white">
       <div
         className="absolute inset-0 -z-10"
         style={{
