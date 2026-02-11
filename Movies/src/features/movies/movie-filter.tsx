@@ -1,11 +1,10 @@
-import { useMovies } from "../../entities/movies/use-movies";
+import { Button } from "../../components/ui/button";
+import { useMovies } from "../../entities/store/movies/use-movies";
 import { GENRES_MAP, GENRES_COLOR_MAP } from "../../shared/constants/constant";
-import SortingOptions from "./sorting/sorting-options";
 
 export const MoviesByGenre = () => {
-  const { selectedGenre, fetchMoviesByGenre, loading } = useMovies();
-
-  const genreIds = Object.keys(GENRES_MAP).map(Number); // [28, 12, 16, ...]
+  const { selectedGenre, getFilteredMovie } = useMovies();
+  const genreIds = Object.keys(GENRES_MAP).map(Number);
 
   return (
     <div className="p-4">
@@ -17,9 +16,9 @@ export const MoviesByGenre = () => {
           const colorClass = GENRES_COLOR_MAP[id] || "bg-gray-200";
 
           return (
-            <button
+            <Button
               key={id}
-              onClick={() => fetchMoviesByGenre(id)}
+              onClick={() => getFilteredMovie(id)}
               className={`px-4 py-2 rounded-md font-medium transition-colors ${
                 isSelected
                   ? `${colorClass} text-white`
@@ -27,12 +26,10 @@ export const MoviesByGenre = () => {
               }`}
             >
               {GENRES_MAP[id]}
-            </button>
+            </Button>
           );
         })}
       </div>
-
-      <SortingOptions />
     </div>
   );
 };

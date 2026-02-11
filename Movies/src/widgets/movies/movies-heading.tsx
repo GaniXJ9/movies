@@ -5,6 +5,7 @@ import {
   CarouselItem,
 } from "../../components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { IMAGE_URL_2 } from "../../shared/constants/constant";
 
 export const MoviesHeading = ({ movies }: { movies: Movie[] }) => {
   return (
@@ -24,7 +25,7 @@ export const MoviesHeading = ({ movies }: { movies: Movie[] }) => {
         {movies?.map((movie: Movie) => (
           <CarouselItem key={movie.id} className="basis-1/8">
             <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              src={`${IMAGE_URL_2}${movie.poster_path}`}
               alt={movie.title}
               className="relative"
             />

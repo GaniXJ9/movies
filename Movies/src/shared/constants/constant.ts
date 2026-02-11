@@ -1,3 +1,6 @@
+export const IMAGE_URL_1 = "https://image.tmdb.org/t/p/original";
+export const IMAGE_URL_2 = "https://image.tmdb.org/t/p/w500";
+
 export const GENRES_MAP: Record<number, string> = {
   28: "Action",
   12: "Adventure",
@@ -40,4 +43,42 @@ export const GENRES_COLOR_MAP: Record<number, string> = {
   53: "bg-gray-800",
   10752: "bg-red-800",
   37: "bg-yellow-700",
+};
+
+export const GENRES_VALUE = {
+  action: "action",
+  adventure: "Adventure",
+  animation: "Animation",
+  comedy: "Comedy",
+  crime: "Crime",
+  documentary: "Documentary",
+  drama: "Drama",
+  family: "Family",
+  fantasy: "Fantasy",
+  history: "History",
+  horror: "Horror",
+  music: "Music",
+  mystery: "Mystery",
+  romance: "Romance",
+  science_fiction: "Science Fiction",
+  tv_movie: "TV Movie",
+  thriller: "Thriller",
+  war: "War",
+  western: "Western",
+};
+
+export const ORDER_OPTIONS = {
+  desc: "Descending",
+  asc: "Ascending",
+  popularity: "Most popular",
+  vote_average: "Raiting",
+  release_date: "Release date",
+};
+
+export const ORDER_OPTIONS_VALUE = {
+  desc: "desc",
+  asc: "asc",
+  popularity: "popularity",
+  vote_average: "vote_average",
+  release_date: "release_date",
 };

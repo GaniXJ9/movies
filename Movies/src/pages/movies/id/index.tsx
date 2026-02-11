@@ -1,38 +1,27 @@
 import { useEffect } from "react";
-import { useMovies } from "../../../entities/movies/use-movies";
 import dayjs from "dayjs";
+import { useMovies } from "../../../entities/store/movies/use-movies";
+import BackDrop from "../../../shared/back-drop";
+import { Loader } from "../../../widgets/common/loader";
 
 const IMAGE_URL = "https://image.tmdb.org/t/p/original";
 
 const MoviesDetail = ({ id }: { id: number }) => {
-  const { selectedMovie, fetchMovieById } = useMovies();
+  const { selectedMovie, getOneMovie } = useMovies();
 
   useEffect(() => {
     if (id) {
-      fetchMovieById(Number(id));
+      getOneMovie(Number(id));
     }
   }, [id]);
 
   if (!selectedMovie) {
-    return (
-      <div className="h-screen flex items-center justify-center text-white text-xl">
-        Загрузка...
-      </div>
-    );
+    return <Loader />;
   }
 
   return (
     <section className="relative  text-white">
-      <div
-        className="absolute inset-0 -z-10"
-        style={{
-          backgroundImage: `url(${IMAGE_URL}${selectedMovie.backdrop_path})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
-      </div>
+      <BackDrop img={selectedMovie.backdrop_path} />
 
       <div className="container mx-auto px-8 py-16 flex gap-10">
         <img

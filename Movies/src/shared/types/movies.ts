@@ -1,3 +1,5 @@
+import type { Id } from "./common";
+
 export type Movie = {
   id: number;
   adult: boolean;
@@ -73,3 +75,15 @@ export type MovieDetails = {
   vote_average?: number;
   vote_count?: number;
 };
+
+export interface MovieStore {
+  movies: Movie[];
+  selectedMovie: MovieDetails | null;
+  selectedGenre: Id | null;
+  loading: boolean;
+  error: string | null;
+  getAllMovies: () => void;
+  getOneMovie: (id: Id) => void;
+  getSortedMovies: (sortBy: string) => void;
+  getFilteredMovie: (genreId: Id) => void;
+}
